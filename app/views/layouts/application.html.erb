@@ -10,6 +10,43 @@
   </head>
 
   <body>
+
+    <header>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-8 header-left">
+          <span>Bookers</span>
+        </div>
+        <nav>
+          <ul class="header-left">
+          <% if user_signed_in? %>
+            <li class="col-md-1"><span class="glyphicon glyphicon-home" aria-hidden="true"></span><%= link_to "Home", user_path(current_user.id) %></li>
+            <li class="col-md-1"><span class="glyphicon glyphicon-user" aria-hidden="true"></span><%= link_to "Users", users_path %></li>
+            <li class="col-md-1"><span class="glyphicon glyphicon-book" aria-hidden="true"></span><%= link_to "Books", books_path %></li>
+            <li class="col-md-1"><span class="glyphicon glyphicon-log-out" aria-hidden="true"></span><%= link_to "logout", destroy_user_session_path, method: :delete %></li>
+          <% else %>
+            <li class="col-md-1"><span class="glyphicon glyphicon-home" aria-hidden="true"></span><%= link_to "Home", root_path %></li>
+            <li class="col-md-1"><span class="glyphicon glyphicon-link" aria-hidden="true"></span><%= link_to "About", home_about_path %></li>
+            <li class="col-md-1"><span class="glyphicon glyphicon-edit" aria-hidden="true"></span><%= link_to "sign up", new_user_registration_path %></li>
+            <li class="col-md-1"><span class="glyphicon glyphicon-log-in" aria-hidden="true"></span><%= link_to "login", new_user_session_path %></li>
+          <% end %>
+          </ul>
+        </nav>
+      </div>
+    </div>
+    </header>
+
     <%= yield %>
+
+    <footer>
+      <div class="container">
+        <div class="row">
+          <div class="col-xs-3 col-xs-offset-9">
+            <p>CopyRight Infratop.inc</p>
+          </div>
+        </div>
+      </div>
+    </footer>
+
   </body>
 </html>

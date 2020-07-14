@@ -1,0 +1,26 @@
+<div class="container">
+	<p class="notice"></p>
+	<div class="row">
+
+		<%= render 'books/post', book: @book %>
+
+		<div class="col-xs-9">
+			<h2>Book datail</h2>
+			<table class="table">
+				<tbody>
+					<tr>
+						<td></td>
+						<td><%= link_to @book_show.title, book_path(@book_show.id) %></td>
+						<td><%= @book.body %></td>
+						<!-- ユーザーが投稿したもののみ、編集と削除のボタンを表示する -->
+						<% if @book_show.user === current_user %>
+							<th><%= link_to "Edit", "#", class: "btn-sm btn-success" %></th>
+							<th><%= link_to "Destroy", book_path, method: :delete, "data-confirm" => "本当に削除しますか？", class:
+							"btn-sm btn-danger" %></th>
+						<% end %>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+</div>

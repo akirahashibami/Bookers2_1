@@ -14,7 +14,11 @@
 		</tbody>
 	</table>
 	<div class="row">
-		<%= link_to "", edit_user_path(@user), class: "col-xs-12 btn btn-default glyphicon glyphicon-wrench" %>
+		<% if @book_user == current_user.id %>
+			<%= link_to "", edit_user_path(@user), class: "col-xs-12 btn btn-default glyphicon glyphicon-wrench" %>
+		<% else %>
+			<%= link_to "", "#", class: "col-xs-12 btn btn-default glyphicon glyphicon-wrench" %>
+		<% end %>
 	</div>
 	<h2>New book</h2>
 	<%= form_for(book) do |f| %>
@@ -23,7 +27,7 @@
 			<%= f.text_field :title, class: "col-xs-12" %>
 		</div>
 		<div class="row">
-			<p>Option</p>
+			<p>Opinion</p>
 			<%= f.text_area :body, class: "col-xs-12" %>
 		</div>
 		<div class="row">

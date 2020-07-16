@@ -1,6 +1,8 @@
 class BooksController < ApplicationController
 
 	before_action :authenticate_user!
+	# URL直打ち防止
+	before_action :correct_user, only: [:edit, :update]
 
 	def index
 		@book = Book.new
@@ -44,6 +46,13 @@ class BooksController < ApplicationController
 		@book = Book.find(params[:id])
 		@book.destroy
 		redirect_to books_path
+	end
+
+	def correct_user
+		@book = Book.find(params[:id])
+		if current_user.id != @book.user_id
+			redirect_to books_path
+		end
 	end
 
 	private

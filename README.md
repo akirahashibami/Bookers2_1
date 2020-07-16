@@ -1,24 +1,11 @@
-# README
+# 【課題：アプリケーションを作成してみよう：応用編】
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+DMMWEBCAMPコンテンツ　【課題：アプリケーションを作成してみよう：応用編】　の研修課題です。
 
-Things you may want to cover:
+## 使い方
 
-* Ruby version
+Ruby on Rails アプリケーションです。ターミナルから仮想環境を起動後、ローカルで動かすことができます。
 
-* System dependencies
+### 補足
 
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+途中、Bookers2_1の名前でアプリケーションを作り、色々と試しながら進め、こちらの名前の方で完成したので_2がついています。よろしくお願いします。
